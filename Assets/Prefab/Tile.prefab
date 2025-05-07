@@ -100,3 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50961f3f4d05dbd4da50f32367c7e83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColour: {r: 0, g: 0, b: 0, a: 1}
+  offsetColour: {r: 1, g: 1, b: 1, a: 1}
+  renderer: {fileID: 1814399617085955064}

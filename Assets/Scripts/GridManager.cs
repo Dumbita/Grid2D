@@ -30,6 +30,7 @@ public class GridManager : MonoBehaviour
                 spawnedTile.name = $"Tile {i} {j}";
                 //chacking tiles if they are odd or even to make the chess pattern
                 var isOffset =(i % 2 == 0 && j % 2 != 0) || (i % 2 != 0 && j % 2 == 0);
+                spawnedTile.Init(isOffset);
 
             }
             
