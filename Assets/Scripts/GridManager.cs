@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class GridManager : MonoBehaviour
     //camera position
     [SerializeField] private Transform cam;
 
+    private Dictionary<Vector2, Tile> tiles;
+
     void Start()
     {
 
@@ -18,6 +21,9 @@ public class GridManager : MonoBehaviour
     //makes the board
     void GenerateGrid()
     {
+
+        tiles = new Dictionary<Vector2, Tile>();    
+
         //position x where tiles have to be spawned
         for (int i = 0; i < width; i++)
         {
@@ -32,11 +38,27 @@ public class GridManager : MonoBehaviour
                 var isOffset =(i % 2 == 0 && j % 2 != 0) || (i % 2 != 0 && j % 2 == 0);
                 spawnedTile.Init(isOffset);
 
+                tiles[new Vector2(i,j)] = spawnedTile;
+
             }
             
         }
 
         cam.transform.position = new Vector3((float)width / 2f - 0.5f,(float) height / 2f - 0.5f, cam.transform.position.z);
+
+    }
+
+    public Tile GetTileAtPosition(Vector2 pos)
+    {
+
+        if (tiles.TryGetValue(pos ,out var tile))
+        {
+
+            return tile;
+
+        }
+
+        return null;
 
     }
 
