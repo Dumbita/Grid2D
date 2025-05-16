@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
 
-        GenerateGri = 0,
+        GenerateGrid = 0,
         SpawnPlayer = 1,
         SpawnEnemies = 2,
         PlayerTurn = 3,
