@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-
-    public static GridManager Instance;
     //coordinates of tiles
     [SerializeField] private int width, height;
     //tile itself
@@ -14,15 +12,14 @@ public class GridManager : MonoBehaviour
 
     private Dictionary<Vector2, Tile> tiles;
 
-    private void Awake()
+    void Start()
     {
-        
-        Instance = this;
+
+        GenerateGrid();
 
     }
-
     //makes the board
-   public void GenerateGrid()
+    void GenerateGrid()
     {
 
         tiles = new Dictionary<Vector2, Tile>();    
@@ -48,8 +45,6 @@ public class GridManager : MonoBehaviour
         }
 
         cam.transform.position = new Vector3((float)width / 2f - 0.5f,(float) height / 2f - 0.5f, cam.transform.position.z);
-
-        GameManager.Instance.UpdateGameState(GameManager.GameState.SpawnPlayer);
 
     }
 
